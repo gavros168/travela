@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Travela Sdn. Bhd.</title>
+<meta name="description" content="Review your quote cart, enter your contact and billing details, and place your order with Travela Sdn. Bhd.">
+<meta property="og:title" content="Checkout | Travela Sdn. Bhd.">
+<meta property="og:description" content="Review your quote cart, enter your contact and billing details, and place your order with Travela Sdn. Bhd.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://travela.shop/checkout">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="contact-links">
+      <span>TEL +6017-618 8464</span>
+      <span>MAIL travela2026@outlook.com</span>
+    </div>
+    <div class="reg-no">REG. 202601026468 (1688564-X)</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="/" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40">
+        <rect x="14" y="4" width="12" height="7" rx="3" fill="none" stroke="var(--petrol)" stroke-width="2.4"/>
+        <rect x="6" y="10" width="28" height="24" rx="4" fill="var(--petrol)"/>
+        <rect x="19" y="14" width="2" height="16" fill="var(--amber)"/>
+        <circle cx="20" cy="22" r="2.2" fill="var(--sand)"/>
+      </svg>
+      <span class="brand-text">Travela<small>Travel Goods Wholesale</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="about">About</a></li>
+      <li><a href="products">Shop</a></li>
+      <li><a href="contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button type="button" class="cart-toggle" data-cart-toggle aria-label="Open quote cart" aria-expanded="false">
+        <svg class="cart-toggle__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count>0</span>
+        <span class="cart-toggle__total" data-cart-total>RM 0</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section class="about-hero">
+  <div class="container">
+    <span class="eyebrow">Checkout</span>
+    <h1 style="font-size:clamp(1.9rem,3.5vw,2.7rem); max-width:760px;">Review your order.</h1>
+    <p style="color:var(--muted); max-width:640px; margin-top:16px; font-size:1.05rem;">Confirm what's in your cart, tell us where to reach you, and we'll follow up to finalize pricing and delivery.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div data-checkout-empty-page style="display:none; text-align:center; max-width:480px; margin:0 auto; padding:20px 0 40px;">
+      <p style="color:var(--muted); font-size:1.05rem; margin-bottom:20px;">Your cart is empty. Add products from the shop before checking out.</p>
+      <a href="products" class="btn btn--amber">Browse the Shop</a>
+    </div>
+
+    <div class="checkout-grid" data-checkout-grid>
+
+      <div data-reveal>
+        <form data-checkout-form action="mailto:travela2026@outlook.com" method="post" enctype="text/plain">
+          <div class="form-panel">
+
+            <div class="checkout-form-section">
+              <h3>Contact Information</h3>
+              <div class="form-grid-2">
+                <div class="form-row">
+                  <label for="co-name">Full Name</label>
+                  <input type="text" id="co-name" name="Name" required>
+                </div>
+                <div class="form-row">
+                  <label for="co-company">Company Name</label>
+                  <input type="text" id="co-company" name="Company">
+                </div>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-row">
+                  <label for="co-email">Email Address</label>
+                  <input type="email" id="co-email" name="Email" required>
+                </div>
+                <div class="form-row">
+                  <label for="co-phone">Phone Number</label>
+                  <input type="tel" id="co-phone" name="Phone" required>
+                </div>
+              </div>
+            </div>
+
+            <hr class="form-divider">
+
+            <div class="checkout-form-section">
+              <h3>Billing Address</h3>
+              <div class="form-row">
+                <label for="co-address1">Address Line 1</label>
+                <input type="text" id="co-address1" name="Address1" required>
+              </div>
+              <div class="form-row">
+                <label for="co-address2">Address Line 2</label>
+                <input type="text" id="co-address2" name="Address2">
+              </div>
+              <div class="form-grid-2">
+                <div class="form-row">
+                  <label for="co-city">City</label>
+                  <input type="text" id="co-city" name="City" required>
+                </div>
+                <div class="form-row">
+                  <label for="co-state">State</label>
+                  <input type="text" id="co-state" name="State">
+                </div>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-row">
+                  <label for="co-postcode">Postcode</label>
+                  <input type="text" id="co-postcode" name="Postcode" required>
+                </div>
+                <div class="form-row">
+                  <label for="co-country">Country</label>
+                  <input type="text" id="co-country" name="Country" value="Malaysia" required>
+                </div>
+              </div>
+            </div>
+
+            <hr class="form-divider">
+
+            <div class="checkout-form-section">
+              <h3>Payment Options</h3>
+              <div class="payment-notice">
+                <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+                <div>
+                  <p>There are no payment methods available. Please contact us for help placing your order.</p>
+                  <p>Once we confirm your order, we'll share bank transfer details and a formal quotation by email or phone.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="terms-row">
+              <input type="checkbox" id="co-terms" name="AgreedToTerms" value="Yes" required>
+              <label for="co-terms">By proceeding with your purchase you agree to our <a href="terms-conditions">Terms and Conditions</a> and <a href="privacy-policy">Privacy Policy</a>.</label>
+            </div>
+
+            <textarea name="Order" data-checkout-order-field style="position:absolute; width:1px; height:1px; overflow:hidden; opacity:0;" tabindex="-1" aria-hidden="true"></textarea>
+
+            <button type="submit" class="btn btn--amber" style="width:100%;">Place Order</button>
+            <p class="form-note">This opens your email client, addressed to us, with your order details filled in. Prefer to talk it through? Call <a href="tel:+60176188464" style="color:var(--petrol);">+6017-618 8464</a>.</p>
+          </div>
+        </form>
+      </div>
+
+      <div data-reveal>
+        <div class="order-summary-card">
+          <h3>Order Summary</h3>
+          <div class="order-summary-lines" data-checkout-body></div>
+          <div class="order-summary-totals">
+            <div class="order-summary-row">
+              <span>Items</span>
+              <span data-checkout-count>0</span>
+            </div>
+            <div class="order-summary-row total">
+              <span>Estimated Subtotal</span>
+              <span data-checkout-subtotal>RM 0</span>
+            </div>
+          </div>
+          <p class="form-note">Final pricing, shipping and lead time are confirmed once we review your order.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color:#faf3e8;">
+          <svg class="brand-mark" viewBox="0 0 40 40">
+            <rect x="14" y="4" width="12" height="7" rx="3" fill="none" stroke="var(--amber-light)" stroke-width="2.4"/>
+            <rect x="6" y="10" width="28" height="24" rx="4" fill="var(--amber-light)"/>
+            <rect x="19" y="14" width="2" height="16" fill="var(--petrol-deep)"/>
+            <circle cx="20" cy="22" r="2.2" fill="var(--petrol-deep)"/>
+          </svg>
+          <span>Travela</span>
+        </div>
+        <p>Wholesaler, general trader, distributor, retailer and e-commerce seller of luggage bags, suitcases, travel pouches and accessories.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about">About Us</a></li>
+          <li><a href="products">Products</a></li>
+          <li><a href="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products">Luggage &amp; Suitcases</a></li>
+          <li><a href="products">Travel Organizers</a></li>
+          <li><a href="products">Luggage Security &amp; Accessories</a></li>
+          <li><a href="products">Weather Accessories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy">Privacy Policy</a></li>
+          <li><a href="refund-policy">Refund &amp; Return Policy</a></li>
+          <li><a href="shipping-policy">Shipping Policy</a></li>
+          <li><a href="terms-conditions">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>8-6-20, Queens Avenue, Jalan Bayam, 55100 Cheras, W.P. Kuala Lumpur, Malaysia</li>
+          <li><a href="tel:+60176188464">+6017-618 8464</a></li>
+          <li><a href="mailto:travela2026@outlook.com">travela2026@outlook.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Travela Sdn. Bhd. &middot; 202601026468 (1688564-X)</span>
+      <span>Kuala Lumpur, Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
