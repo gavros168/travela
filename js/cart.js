@@ -109,7 +109,7 @@
     } else {
       body.innerHTML = items.map(function (i) {
         var thumb = '<img class="cart-line__thumb" src="' + itemImage(i) + '" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement(\'div\'),{className:\'cart-line__thumb cart-line__thumb--empty\'}))">';
-        var skuLine = i.sku + (i.size ? ' &middot; Size ' + i.size : '') + ' &middot; ' + formatRM(i.price) + ' / set';
+        var skuLine = i.sku + (i.size ? ' &middot; Size ' + i.size : '') + ' &middot; ' + formatRM(i.price) + ' / unit';
         return (
           '<div class="cart-line" data-line-key="' + lineKey(i.sku, i.size) + '">' +
             thumb +

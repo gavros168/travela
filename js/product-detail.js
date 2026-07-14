@@ -30,7 +30,7 @@
             '<h3>' + p.name + '</h3>' +
             '<p>' + p.shortDescription + '</p>' +
             '<div class="product-card__footer">' +
-              '<span class="product-price">' + formatRM(p.price) + '<small>/ set</small></span>' +
+              '<span class="product-price">' + formatRM(p.price) + '<small>/ unit</small></span>' +
             '</div>' +
           '</div>' +
         '</a>'
@@ -81,7 +81,7 @@
     document.getElementById('detail-measurement-note').textContent = window.TRAVELA_MEASUREMENT_NOTE || '';
 
     var priceEl = document.getElementById('detail-price');
-    priceEl.innerHTML = formatRM(product.price) + '<small>/ set</small>';
+    priceEl.innerHTML = formatRM(product.price) + '<small>/ unit</small>';
 
     var specsTable = document.getElementById('detail-specs');
     specsTable.innerHTML = product.specs.map(function (row) {
