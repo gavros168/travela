@@ -587,11 +587,9 @@ body.cart-open { overflow: hidden; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 
-/* Ticket card — category cards with a torn-corner silhouette, wrapped in a flex row (not a scroll rail or plain grid) */
-.category-strip { display: flex; flex-wrap: wrap; gap: 22px; }
+/* Ticket card — category cards with a torn-corner silhouette, laid out on a fixed 3-column grid (not a scroll rail or flex-wrap, which left an uneven gap on the final row) */
+.category-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .ticket-card {
-  flex: 1 1 260px;
-  max-width: 320px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-top: 3px solid var(--petrol);
@@ -1165,6 +1163,7 @@ body.cart-open { overflow: hidden; }
   .dispatch-strip { flex-direction: column; }
   .dispatch-strip__stub { width: auto; padding: 18px 0; }
   .dispatch-strip__stub::before { display: none; }
+  .category-strip { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -1207,7 +1206,7 @@ body.cart-open { overflow: hidden; }
   .spec-bar__item { padding: 16px 20px; border-left: none; border-top: 1px dashed rgba(250,243,232,0.25); flex: 1 1 45%; }
   .spec-bar__item:first-child { border-top: none; }
   .dispatch-strip__title { border-right: none; border-bottom: 1px dashed var(--line); padding: 0 0 16px; width: 100%; }
-  .ticket-card { flex-basis: 100%; max-width: none; }
+  .category-strip { grid-template-columns: 1fr; }
 
   /* Prevent iOS Safari from auto-zooming on focus (triggers under 16px) */
   .form-row input, .form-row select, .form-row textarea, .qty-input { font-size: 16px; }
