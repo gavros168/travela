@@ -479,86 +479,86 @@ body.cart-open { overflow: hidden; }
   max-width: 640px;
   margin-bottom: 34px;
 }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
-
-/* Hero lower row — boarding pass + inline quick facts */
-.hero-cover__foot {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 56px;
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero-stats-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
   align-items: center;
-  border-top: 1px solid rgba(250,243,232,0.14);
-  padding-top: 44px;
-}
-.hero-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
-.hero-facts div strong {
-  display: block;
   font-family: 'Roboto Mono', monospace;
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: var(--amber-light);
+  font-size: 0.84rem;
+  color: rgba(250,243,232,0.7);
+  padding-top: 24px;
+  border-top: 1px solid rgba(250,243,232,0.14);
 }
-.hero-facts div span { font-size: 0.82rem; color: rgba(250,243,232,0.68); }
+.hero-stats-line strong { color: var(--amber-light); font-weight: 700; }
+.hero-stats-line span.divider { color: rgba(250,243,232,0.3); }
 
-/* Boarding pass — hero signature panel, a ticket-stub card with a perforated tear line and barcode */
-.boarding-pass {
-  position: relative;
+/* Dispatch strip — wide horizontal ticket, its own section below the hero (not embedded in it) */
+.dispatch-strip {
+  display: flex;
+  align-items: stretch;
   background: var(--panel);
-  color: var(--ink);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  transform: rotate(-1.4deg);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
-.boarding-pass__head {
-  padding: 22px 26px 16px;
+.dispatch-strip__main {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 32px;
 }
-.boarding-pass__head h3 {
+.dispatch-strip__title {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--petrol-text);
+  padding-right: 32px;
+  border-right: 1px dashed var(--line);
 }
-.boarding-pass__head span { font-family: 'Roboto Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-.boarding-pass__body { padding: 4px 26px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
-.boarding-pass__field dt {
+.dispatch-strip__title span {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.dispatch-strip__field dt {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.08em;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 4px;
 }
-.boarding-pass__field dd { font-weight: 600; font-size: 0.95rem; }
-.boarding-pass__perf {
+.dispatch-strip__field dd { font-weight: 600; font-size: 0.92rem; }
+.dispatch-strip__stub {
+  flex-shrink: 0;
+  width: 150px;
+  background: var(--petrol-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  height: 0;
-  border-top: 2px dashed var(--line);
-  margin: 4px 0;
 }
-.boarding-pass__perf::before, .boarding-pass__perf::after {
+.dispatch-strip__stub::before {
   content: "";
   position: absolute;
-  top: -11px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--petrol-deep);
+  left: 0; top: 0; bottom: 0;
+  border-left: 2px dashed rgba(250,243,232,0.3);
 }
-.boarding-pass__perf::before { left: -37px; }
-.boarding-pass__perf::after { right: -37px; }
-.boarding-pass__stub { padding: 18px 26px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.boarding-pass__stub p { font-size: 0.86rem; color: var(--muted); max-width: 220px; }
-.boarding-pass__barcode {
-  flex-shrink: 0;
-  width: 84px;
-  height: 40px;
-  background-image: repeating-linear-gradient(90deg, var(--ink) 0px, var(--ink) 2px, transparent 2px, transparent 5px, var(--ink) 5px, var(--ink) 6px, transparent 6px, transparent 10px);
+.dispatch-strip__barcode {
+  width: 90px;
+  height: 44px;
+  background-image: repeating-linear-gradient(90deg, var(--sand) 0px, var(--sand) 2px, transparent 2px, transparent 5px, var(--sand) 5px, var(--sand) 6px, transparent 6px, transparent 10px);
 }
 
 /* Spec bar — flight-info-board style single-row strip, not a boxed feature grid */
@@ -587,48 +587,28 @@ body.cart-open { overflow: hidden; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 
-/* Luggage tag — category cards shaped like a real hand-luggage tag */
-.luggage-tag {
+/* Ticket card — category cards with a torn-corner silhouette, wrapped in a flex row (not a scroll rail or plain grid) */
+.category-strip { display: flex; flex-wrap: wrap; gap: 22px; }
+.ticket-card {
+  flex: 1 1 260px;
+  max-width: 320px;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 22px;
-  padding: 28px 22px 24px;
-  position: relative;
+  border-top: 3px solid var(--petrol);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  padding: 26px 24px 36px;
   transition: transform 0.25s cubic-bezier(0.2,0.7,0.3,1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
-.luggage-tag:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--petrol); }
-.luggage-tag .tag-hole {
-  position: absolute;
-  bottom: 14px;
-  left: 16px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--sand);
-  border: 2px solid var(--line);
-}
-.luggage-tag .tag-code {
+.ticket-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--petrol); }
+.ticket-card .tag-code {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.68rem;
   color: var(--petrol-text);
   letter-spacing: 0.05em;
   font-weight: 700;
 }
-.luggage-tag h3 { font-size: 1.15rem; margin: 12px 0 8px; }
-.luggage-tag p { font-size: 0.9rem; color: var(--muted); }
-
-/* Category rail — horizontal scroll-snap strip */
-.category-rail {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 6px 6px 22px;
-  margin: 0 -6px;
-}
-.category-rail .luggage-tag { flex: 0 0 240px; scroll-snap-align: start; }
-.category-rail::-webkit-scrollbar { height: 6px; }
-.category-rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+.ticket-card h3 { font-size: 1.12rem; margin: 12px 0 8px; }
+.ticket-card p { font-size: 0.9rem; color: var(--muted); }
 
 /* Stat strip */
 .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--panel); }
@@ -643,6 +623,29 @@ body.cart-open { overflow: hidden; }
 .trust-line div:first-child { border-left: none; }
 .trust-line h3 { font-size: 1.1rem; margin-bottom: 6px; }
 .trust-line p { color: var(--muted); font-size: 0.9rem; }
+
+/* Value badge — core values as a stamp-icon grid, not a numbered list */
+.value-badge {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px 24px;
+  text-align: center;
+}
+.value-badge__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--petrol-deep);
+  color: var(--amber-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  border: 3px solid var(--amber);
+}
+.value-badge h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.value-badge p { color: var(--muted); font-size: 0.9rem; }
 
 /* Product catalog — shared card, shop layout with sidebar filter */
 .shop-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
@@ -897,10 +900,6 @@ body.cart-open { overflow: hidden; }
 }
 .rail-body h3 { font-size: 1.2rem; margin-bottom: 6px; }
 .rail-body p { color: var(--muted); font-size: 0.95rem; max-width: 640px; }
-.rail--split { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; border-top: 1px solid var(--line); }
-.rail--split .rail-row { border-bottom: 1px dashed var(--line); }
-.rail--split .rail-row:nth-child(odd) { border-right: 1px dashed var(--line); padding-right: 24px; }
-.rail--split .rail-row:nth-child(even) { padding-left: 24px; }
 
 /* FAQ — plain question/answer rows, no accordion chrome */
 .faq-list { border-top: 1px solid var(--line); max-width: 780px; margin: 0 auto; }
@@ -1145,8 +1144,6 @@ body.cart-open { overflow: hidden; }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-cover__foot { grid-template-columns: 1fr; gap: 32px; }
-  .hero-facts { grid-template-columns: repeat(2, 1fr); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .two-col { grid-template-columns: 1fr; gap: 32px; }
@@ -1161,14 +1158,13 @@ body.cart-open { overflow: hidden; }
   .trust-line div:first-child { border-top: none; }
   .compass-panel { grid-template-columns: 1fr; }
   .compass-panel__divider { display: none; }
-  .rail--split { grid-template-columns: 1fr; }
-  .rail--split .rail-row:nth-child(odd) { border-right: none; padding-right: 4px; }
-  .rail--split .rail-row:nth-child(even) { padding-left: 4px; }
   .shop-layout { grid-template-columns: 1fr; }
   .shop-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 8px; }
   .shop-sidebar button { width: auto; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
   .product-detail { grid-template-columns: 1fr; }
-  .boarding-pass__body { grid-template-columns: 1fr; }
+  .dispatch-strip { flex-direction: column; }
+  .dispatch-strip__stub { width: auto; padding: 18px 0; }
+  .dispatch-strip__stub::before { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -1210,10 +1206,8 @@ body.cart-open { overflow: hidden; }
   .product-detail__buy .btn { width: 100%; }
   .spec-bar__item { padding: 16px 20px; border-left: none; border-top: 1px dashed rgba(250,243,232,0.25); flex: 1 1 45%; }
   .spec-bar__item:first-child { border-top: none; }
-  .hero-facts { grid-template-columns: 1fr; }
-  .category-rail .luggage-tag { flex-basis: 200px; }
-  .boarding-pass { transform: rotate(0); }
-  .boarding-pass__perf::before, .boarding-pass__perf::after { display: none; }
+  .dispatch-strip__title { border-right: none; border-bottom: 1px dashed var(--line); padding: 0 0 16px; width: 100%; }
+  .ticket-card { flex-basis: 100%; max-width: none; }
 
   /* Prevent iOS Safari from auto-zooming on focus (triggers under 16px) */
   .form-row input, .form-row select, .form-row textarea, .qty-input { font-size: 16px; }
